@@ -4,7 +4,12 @@ const Car = require('../models/car');
 
 router.post('/add-car', async (req, res) => {
     try {
+        // Auto increment figovo raboet!!!!!
+        const ids = await Car.findAll({
+            attributes: ['id']
+        });
         const car = await Car.create({
+            id: ids.length+1,
             vin: "1XP9D29X2EN162096",
             registrationNumber: "N9609K",
             brand: "Honda",
